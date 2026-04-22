@@ -1,15 +1,11 @@
 import fitz  # PyMuPDF
 import os
 
-def remove_small_images_from_pdf(input_pdf, output_pdf, min_width=50, min_height=50, max_width=60, max_height=50):
+def remove_small_images_from_pdf(input_pdf, output_pdf):
     """
     批量删除PDF中尺寸较小的图片
     :param input_pdf: 输入PDF文件路径
     :param output_pdf: 输出PDF文件路径
-    :param min_width: 图片的最小宽度（像素）
-    :param min_height: 图片的最小高度（像素）
-    :param max_width: 图片的最大宽度（像素）
-    :param max_height: 图片的最大高度（像素）
     """
     try:
         # 1. 打开PDF文档
@@ -52,7 +48,15 @@ def remove_small_images_from_pdf(input_pdf, output_pdf, min_width=50, min_height
 
                 #打印图片宽高
                 print(f"[图片信息] (宽:{rect.width:.1f}, 高:{rect.height:.1f}, x: {round(rect.x0)}, y: {round(rect.y0)}, x1: {round(rect.x1)}, y1: {round(rect.y1)})")
-
+                
+                #图片的最小宽度（像素）
+                min_width=75
+                #图片的最小高度（像素）
+                min_height=36
+                #图片的最大宽度（像素）
+                max_width=76
+                #图片的最大高度（像素）
+                max_height=37
 
                 if width < max_width and height < max_height and width > min_width and height > min_height:
                     # 从页面中删除该图片
@@ -76,12 +80,8 @@ if __name__ == "__main__":
     # input_file = "one.pdf"  # 你的输入文件名
     # output_file = "one_cleaned.pdf" # 输出文件名
 
-    input_file = "/Users/teacher/Desktop/example_edit/split/one.pdf"       
-    output_file = "/Users/teacher/Desktop/example_edit/split/cleaned_example.pdf"
-    min_width=300
-    min_height=40
-    max_width=420
-    max_height=70
+    input_file = "/Users/teacher/Desktop/001/11.pdf"       
+    output_file = "/Users/teacher/Desktop/001/11-2.pdf"
     
     
     # 检查文件是否存在
@@ -91,6 +91,6 @@ if __name__ == "__main__":
     else:
         # 运行函数
         # 参数说明：min_width=60 表示宽度小于 60 像素的图都会被删掉
-        remove_small_images_from_pdf(input_file, output_file, min_width, min_height, max_width, max_height)
+        remove_small_images_from_pdf(input_file, output_file)
 
 

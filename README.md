@@ -16,4 +16,4 @@
 
 4. 运行脚本
 
-```python main.py```
+```python main_size.py```
