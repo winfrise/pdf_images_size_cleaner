@@ -21,7 +21,7 @@
 ```python main_size_by_info.py```
 
 
-需要改进的地方
+1. 需要改进的地方
 ```python
 TARGET_SIZES = [
     (1182, 175), # 第一种目标尺寸
@@ -42,3 +42,6 @@ def is_target_size(width, height, targets, tolerance):
             return True
     return False
 ```
+
+2. 白色遮挡的实现
+```page.draw_rect()```或```page.add_rect_annot()```
