@@ -19,3 +19,26 @@
 ```python main_size_by_box.py```
 
 ```python main_size_by_info.py```
+
+
+需要改进的地方
+```python
+TARGET_SIZES = [
+    (1182, 175), # 第一种目标尺寸
+    (189, 66),   # 第二种目标尺寸
+]
+
+def is_target_size(width, height, targets, tolerance):
+    """
+    判断给定的宽高是否匹配目标尺寸列表中的任意一个（包含容差）
+    """
+    for t_w, t_h in targets:
+        # 计算宽高的差值绝对值
+        w_diff = abs(width - t_w)
+        h_diff = abs(height - t_h)
+        
+        # 如果宽高差值都在容差范围内，则视为匹配
+        if w_diff <= tolerance and h_diff <= tolerance:
+            return True
+    return False
+```
