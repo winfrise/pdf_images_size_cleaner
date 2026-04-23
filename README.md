@@ -16,4 +16,6 @@
 
 4. 运行脚本
 
-```python main_size.py```
+```python main_size_by_box.py```
+
+```python main_size_by_info.py```
