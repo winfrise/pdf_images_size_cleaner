@@ -20,6 +20,8 @@
 
 ```python main_size_by_info.py```
 
+```python main_draw_rect.py```
+
 
 1. 需要改进的地方
 ```python
